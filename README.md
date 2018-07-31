@@ -30,4 +30,9 @@
   - creating alias with column names
   - using not null and auto increment
 # section 5 (filename section5.sql)
+  - CRUD commands
+  - CREATE TABLE tablename
+  - INSERT INTO tablename()
+  - UPDATE tableName SET colume_name='newName' WHERE colume_name='oldName'
+  - DROP TABLE tablename;
 
