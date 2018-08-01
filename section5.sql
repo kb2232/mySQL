@@ -90,6 +90,10 @@ SELECT COUNT(stock_quantity)
 AS "total"
 FROM books;
 
+-- select rows where released year is 2003
+SELECT * FROM books
+WHERE released_year = 2003;
+
 -- select the first name and pages;
 SELECT author_Fname, pages
 FROM books;
