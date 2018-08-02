@@ -55,3 +55,87 @@ CREATE TABLE shirts(
 
 SHOW TABLES;
 
+INSERT INTO shirts(article,color,shirt_size,last_worn)
+VALUES ('t-shirt', 'white', 'S', 10),
+('t-shirt', 'green', 'S', 200),
+('polo shirt', 'black', 'M', 10),
+('tank top', 'blue', 'S', 50),
+('t-shirt', 'pink', 'S', 0),
+('polo shirt', 'red', 'M', 5),
+('tank top', 'white', 'S', 200),
+('tank top', 'blue', 'M', 15);
+
+-- selecting all values;
+SELECT * FROM shirts;
+
+-- 1. Only print out article and color;
+SELECT article, color
+FROM shirts;
+-- 2. Print out everything except shirt_id;
+-- i will propse two ways; 
+-- recommended;
+SELECT article, color, shirt_size, last_worn
+FROM shirts;
+-- nice and creative but not efficient;
+-- a. duplicate table;
+CREATE TABLE temp
+AS
+SELECT * FROM shirts;
+-- b. drop columns;
+ALTER TABLE temp
+DROP article;
+ALTER TABLE temp
+DROP color;
+ALTER TABLE temp
+DROP shirt_size;
+ALTER TABLE temp
+DROP last_worn;
+
+-- 3. Change all polo shirts size to L;
+UPDATE shirts
+SET shirt_size = "L" 
+WHERE article="polo shirt";
+
+SELECT * FROM shirts;
+
+-- 4. if last worn is 15 days ago, change it to 0
+-- first i want to see how many is 15 or less;
+SELECT *, 
+IF(last_worn <= 15, "YES", "NO")
+AS "recent"
+FROM shirts;
+
+-- now update;
+UPDATE shirts
+SET last_worn=0
+WHERE last_worn=15;
+
+SELECT * FROM shirts;
+
+-- 5. change all white shirts SIZE to "xs" and color to "off white";
+UPDATE shirts
+SET shirt_size="XS", color="off-white"
+WHERE color = "white";
+-- notice the above is set such that the earlier shirt_size type to 
+-- character(1); Below I show how to update it. It should work now;
+ALTER TABLE shirts 
+MODIFY shirt_size VARCHAR(3) NOT NULL;
+
+UPDATE shirts
+SET shirt_size="XS", color="off-white"
+WHERE color = "white";
+-- 5b. print out polo shirt rows only;
+SELECT * FROM shirts
+WHERE article="polo shirt";
+-- 6. delete all shirts last worn over 200 days ago;
+DELETE FROM shirts
+WHERE last_worn >= 200;
+
+SELECT * FROM shirts;
+
+-- 7. delete all tank tops;
+DELETE FROM shirts
+WHERE article = "tank top";
+-- 8. delete all shirts;
+DELETE FROM shirts;
+
