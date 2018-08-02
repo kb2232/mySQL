@@ -36,5 +36,22 @@ shirt_id	article	    color	    shirt_size	last_worn
 6. delete all shirts last worn over 200 days ago
 7. delete all tank tops
 8. delete all shirts
-9. drop the table
+9. drop the table;
 */
+
+SHOW DATABASES;
+CREATE DATABASE shirts_db;
+SHOW DATABASES;
+USE shirts_db;
+
+CREATE TABLE shirts(
+  id INT NOT NULL AUTO_INCREMENT,
+  article VARCHAR(100) NOT NULL,
+  color VARCHAR(50) NOT NULL,
+  shirt_size CHARACTER(1) NOT NULL,
+  last_worn INT NOT NULL,
+  PRIMARY KEY(id)
+);
+
+SHOW TABLES;
+
