@@ -35,4 +35,6 @@
   - INSERT INTO tablename()
   - UPDATE tableName SET colume_name='newName' WHERE colume_name='oldName'
   - DROP TABLE tablename;
+# section 6 (filename section6.sql)
+  - CRUD Challenge
 
