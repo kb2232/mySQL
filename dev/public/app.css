@@ -1,0 +1,49 @@
+input {
+  width: 100%;
+  line-height: 1.5;
+	font-size: 50px;
+	color: black;
+	padding: 5px 10px 0px 0px;
+}
+
+.button {
+  line-height: 2.0;
+  border:3px solid white;
+  font-size: 1.9em;
+  padding: 5px 30px;
+  border-radius: 5px;
+  opacity: 0.8;
+  width: 100%;
+  color: red;
+  background-color: aqua;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+form {
+	line-height: 1.5;
+	border: none;
+	border-bottom: 3px solid #ebebeb;
+	margin-top: 100px;
+	width: 700px;
+	font-size: 2.9em;
+	color: white;
+	padding: 5px 10px;
+	background: transparent;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+}
