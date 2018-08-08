@@ -10,8 +10,26 @@
 </head>
 <body>
   <div class="container">
-    <button>SEARCH</button>
-    <button>JOIN US</button>
+    <form method="GET" action="/buyfromus"> <button class="button">BUY FROM US</button></form>
+    <form  method="GET" action="/joinus">
+      <button class="button">JOIN US</button>
+    </form>
+  </div>
+  <div>
+    <card>
+      <h1>Latest Item in our table of <mark><%=len%></mark> items:   <p><mark><%=data%></mark></p></h1>
+    </card>
   </div>
 </body>
+<style>
+  body{
+    background-image: url("/bam1.png");
+    background-size: cover;
+    color: red;
+  }
+  h1{
+    background-color:cyan;
+    width: 50%;
+  }
+</style>
 </html>
