@@ -37,4 +37,19 @@
   - DROP TABLE tablename;
 # section 6 (filename section6.sql)
   - CRUD Challenge
-
+# section7 ( book data)
+  - creating book data
+  - using string functions on book data
+  - CONCAT, CONCAT_WS
+  - SUBSTRING
+  - REPLACE
+  - REVERSE
+  - CHAR_LENGTH
+  - UPPER()
+  - LOWER()
+# section 8 (refining selections)
+  - DISTINCT
+  - ORDER BY - sorting - ascending by defaults
+  - LIMIT
+  - LIKE
+  - wildcards
