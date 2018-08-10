@@ -7,6 +7,10 @@
 -- 7. find the longest page count for each author;
 -- 8. sum all pages in our database;
 -- 9. sum all the pages each author has written
+--  10. avg released year across all books;
+-- 11. cal. the average stock quantity for books released in the same year;
+-- 12. print number of books in the database;
+-- 13. print out how many books released in each year;
 
 SHOW DATABASES;
 USE bamazon;
@@ -87,3 +91,20 @@ FROM books;
 SELECT CONCAT(author_fname," ",author_lname) AS 'author', SUM(pages)
 FROM books
 GROUP BY  CONCAT(author_fname," ",author_lname);
+
+--10;
+SELECT AVG(released_year)
+FROM books;
+
+--11;
+SELECT released_year, AVG(stock_quantity)
+FROM books
+GROUP BY released_year;
+--12;
+SELECT COUNT(released_year)
+AS 'number of books'
+FROM books;
+--13;
+SELECT released_year, COUNT(released_year)
+FROM books
+GROUP BY released_year;
