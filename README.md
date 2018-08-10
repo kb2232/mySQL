@@ -53,3 +53,10 @@
   - LIMIT
   - LIKE
   - wildcards
+# section 9 (aggregate functions)
+  - count function
+  - GROUP BY
+  - MIN and MAX
+  - MIN, MAX and GROUP BY
+  - SUM function
+  - AVG
