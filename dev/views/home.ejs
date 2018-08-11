@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+  <link rel="stylesheet" href="/app.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <form method="GET" action="/buyfromus"> <button class="button">BUY FROM US</button></form>
+    <form  method="GET" action="/joinus">
+      <button class="button">JOIN US</button>
+    </form>
+  </div>
+  <div>
+    <card>
+      <h1>Latest Item in our table of <mark><%=len%></mark> items:   <p><mark><%=data%></mark></p></h1>
+    </card>
+  </div>
+</body>
+<style>
+  body{
+    background-image: url("/bam1.png");
+    background-size: cover;
+    color: red;
+  }
+  h1{
+    background-color:cyan;
+    width: 50%;
+  }
+</style>
+</html>
