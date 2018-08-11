@@ -60,3 +60,11 @@
   - MIN, MAX and GROUP BY
   - SUM function
   - AVG
+# section 10 (time)
+  - DATE
+  - TIME
+  - DATETIME
+  - curdate()
+  - curtime()
+  - now()
+  - formatting time and date

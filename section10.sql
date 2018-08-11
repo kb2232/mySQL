@@ -39,3 +39,41 @@ INSERT INTO people
 (name, birthdate, birthtime, birthday)
 VALUES 
 ('Microwave',CURDATE(), CURTIME(), NOW());
+
+/*give the actual date*/
+SELECT DAY(birthDATE) 
+FROM people;
+
+-- print out current time;
+SELECT CURTIME();
+
+-- print out current date;
+SELECT CURDATE();
+
+-- Day name;
+SELECT DAY(CURDATE());
+SELECT DAYNAME(CURDATE());
+
+-- FORMATTING;
+SELECT DATE_FORMAT(NOW(),'%W %M %Y') AS 'today';
+SELECT DATE_FORMAT(NOW(),'%m/%d/%Y')
+AS 'today';
+
+
+SELECT DATE_FORMAT(NOW(), '%M %D at %h:%i');
+
+/*
+create a tweets table
+that stores 
+- tweet content
+- a username
+- time it was created
+*/
+CREATE TABLE tweets(
+  Tcontent VARCHAR(100),
+  username VARCHAR(100),
+  create_at TIMESTAMP DEFAULT NOW()
+);
+INSERT INTO tweets(Tcontent,username)
+VALUES ("this sucks","kbmoneymaker"),
+("omg so cool","notmayn45t");
