@@ -16,7 +16,7 @@
 
 -- 1. DATE: format is 'YYYY-MM-DD'
 -- 2. TIME: format is 'HH:MM:SS'
--- 3. DATETIME: format is 'YYYY-MM-DD HH:MM:SS';
+-- 3. DATETIME: format is 'YYYY-MM-DD HH:MM:SS';ss;
 SHOW DATABASES;
 USE bamazon;
 SHOW TABLES;
