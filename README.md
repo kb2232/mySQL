@@ -68,3 +68,11 @@
   - curtime()
   - now()
   - formatting time and date
+# section 11 (logical operators)
+  - !=
+  - =
+  - LIKE NOT LIKE
+  - AND OR
+  - BETWEEN
+  - IN
+  - less than or greater than
