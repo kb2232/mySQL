@@ -99,7 +99,8 @@ CREATE TABLE orders(
 );
 ```
 # Section 12 - JOIN
-  1. CROSS JOIN.
+  0. A ={ 2,3,f,5}; B={2,f,6,7}
+  1. CROSS JOIN. = {2,3,f,5,2,f,6,7}
      - think of the question below
   ```sql
       -- HOW can i find the orders placed by Boy George?;
@@ -161,3 +162,21 @@ CREATE TABLE orders(
 |  5 | Bette  | Davis   | bette@aol.com    |  7 | 2016-03-10 00:00:00 | 199.99 |           5 |
 +----+--------+---------+------------------+----+---------------------+--------+-------------+
 ```
+  2. implicit INNER JOIN - join them where they match;
+    -  A ={ 2,3,f,5}; B={2,f,6,7}
+    - they only match at {2,f}
+    
+    --implicit inner join;
+    SELECT * FROM customers, orders
+    WHERE customers
+    id = orders.customer_id;
+      +----+--------+---------+------------------+----+---------------------+--------+-------------+
+    |  1 | Boy    | George  | george@gmail.com |  1 | 2016-02-10 00:00:00 |  99.99 |           1 |
+    |  1 | Boy    | George  | george@gmail.com |  2 | 2017-11-11 00:00:00 |  35.50 |           1 |
+    |  2 | George | Michael | gm@gmail.com     |  3 | 2014-12-12 00:00:00 | 800.67 |           2 |
+    |  2 | George | Michael | gm@gmail.com     |  4 | 2015-01-03 00:00:00 |  12.50 |           2 |
+    |  5 | Bette  | Davis   | bette@aol.com    |  5 | 1999-04-11 00:00:00 | 450.25 |           5 |
+    |  5 | Bette  | Davis   | bette@aol.com    |  7 | 2016-03-10 00:00:00 | 199.99 |           5 |
+    +----+--------+---------+------------------+----+---------------------+--------+-------------+
+
+  3. explicit inner join;

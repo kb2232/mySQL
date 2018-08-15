@@ -88,6 +88,11 @@ WHERE customer_id = (
 -- another way is to use join...But first let's do a simple "cross join";
 -- join is just combing tables together in meaningful manners;
 
--- CROSS JOIN;
+-- CROSS JOIN; this takes evry possible combination;
 SELECT * FROM customers, orders;
 -- check readme for results.;
+
+
+--implicit inner join;
+SELECT * FROM customers, orders
+WHERE customers.id = orders.customer_id;
