@@ -67,3 +67,27 @@ SELECT * FROM orders;
 
 INSERT INTO orders (orderDate, amount, customer_id)
 VALUES ('2016/03/10', 199.99, 5);
+
+-- using join;
+-- HOW can i find the orders placed by Boy George?;
+
+--1. one way is to use sub queries;
+SELECT * FROM orders
+WHERE customer_id = (
+  SELECT id FROM customers
+  WHERE lname = "George"
+);
+/*
++----+---------------------+--------+-------------+
+| id | orderDate           | amount | customer_id |
++----+---------------------+--------+-------------+
+|  1 | 2016-02-10 00:00:00 |  99.99 |           1 |
+|  2 | 2017-11-11 00:00:00 |  35.50 |           1 |
++----+---------------------+--------+-------------+
+*/
+-- another way is to use join...But first let's do a simple "cross join";
+-- join is just combing tables together in meaningful manners;
+
+-- CROSS JOIN;
+SELECT * FROM customers, orders;
+-- check readme for results.;
