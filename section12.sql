@@ -96,3 +96,8 @@ SELECT * FROM customers, orders;
 --implicit inner join;
 SELECT * FROM customers, orders
 WHERE customers.id = orders.customer_id;
+-- explicit inner join;
+SELECT * FROM customers
+JOIN orders
+  ON customers.id = orders.customer_id;
+

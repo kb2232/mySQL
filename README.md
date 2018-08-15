@@ -163,13 +163,17 @@ CREATE TABLE orders(
 +----+--------+---------+------------------+----+---------------------+--------+-------------+
 ```
   2. implicit INNER JOIN - join them where they match;
-    -  A ={ 2,3,f,5}; B={2,f,6,7}
-    - they only match at {2,f}
-    
-    --implicit inner join;
+  ```SQL
     SELECT * FROM customers, orders
     WHERE customers
     id = orders.customer_id;
+  ```
+  - 
+    -  A ={ 2,3,f,5}; B={2,f,6,7}
+    - they only match at {2,f}
+    - implicit inner join; OUTPUT BELOW
+  
+  ```
       +----+--------+---------+------------------+----+---------------------+--------+-------------+
     |  1 | Boy    | George  | george@gmail.com |  1 | 2016-02-10 00:00:00 |  99.99 |           1 |
     |  1 | Boy    | George  | george@gmail.com |  2 | 2017-11-11 00:00:00 |  35.50 |           1 |
@@ -178,5 +182,11 @@ CREATE TABLE orders(
     |  5 | Bette  | Davis   | bette@aol.com    |  5 | 1999-04-11 00:00:00 | 450.25 |           5 |
     |  5 | Bette  | Davis   | bette@aol.com    |  7 | 2016-03-10 00:00:00 | 199.99 |           5 |
     +----+--------+---------+------------------+----+---------------------+--------+-------------+
+  ```
 
   3. explicit inner join;
+  ```SQL
+      SELECT * FROM customers
+      JOIN orders
+      ON customers.id = orders.customer_id;
+  ```
