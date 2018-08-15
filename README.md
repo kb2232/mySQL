@@ -184,9 +184,44 @@ CREATE TABLE orders(
     +----+--------+---------+------------------+----+---------------------+--------+-------------+
   ```
 
-  3. explicit inner join;
+  3. explicit inner join; what they have in common
+  - 
   ```SQL
       SELECT * FROM customers
-      JOIN orders
+      INNER JOIN orders
+      ON customers.id = orders.customer_id;
+  ```
+  - more complex queries
+  ```sql
+      SELECT fname, lname, email, 
+      SUM(amount) AS 'total_spent' FROM customers
+      INNER JOIN orders
+      ON customers.id = orders.customer_id
+      GROUP BY orders.customer_id
+      ORDER BY total_spent
+      DESC;
+  ```
+
+  4. LEFT JOIN and RIGHT JOIN
+    - LEFT JOIN; take everything from customers and what both customers and orders have in common;
+    - right join; take everything from ORDERS and what both customers and orders have in common;
+  ```SQL
+      SELECT * FROM customers
+      LEFT JOIN orders
+      ON customers.id = orders.customer_id;
+
+      SELECT 
+        fname, 
+        lname,
+        IFNULL(SUM(amount),0) AS 'total_spent'
+      FROM customers
+      LEFT JOIN orders
+      ON customers.id = orders.customer_id
+      GROUP BY customers.id
+      ORDER BY total_spent
+      DESC;
+
+      SELECT * FROM customers
+      RIGHT JOIN orders
       ON customers.id = orders.customer_id;
   ```

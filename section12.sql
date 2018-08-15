@@ -98,6 +98,50 @@ SELECT * FROM customers, orders
 WHERE customers.id = orders.customer_id;
 -- explicit inner join;
 SELECT * FROM customers
-JOIN orders
-  ON customers.id = orders.customer_id;
+INNER JOIN orders
+  ON customers.id = orders.customer_id
+ORDER BY oderDate;
 
+SELECT * FROM customers
+INNER JOIN orders
+  ON customers.id = orders.customer_id
+ORDER BY orders.orderDate;
+
+SELECT * FROM customers
+INNER JOIN orders
+ON customers.id = orders.customer_id
+GROUP BY orders.customer_id;
+/* error showed up:
+this is incompatible with sql_mode=only_full_group_by;
+I entered:
+>> SET sql_mode = ''; and it worked
+*/
+
+SELECT fname, lname, email, 
+SUM(amount) AS 'total_spent' FROM customers
+INNER JOIN orders
+ON customers.id = orders.customer_id
+GROUP BY orders.customer_id
+ORDER BY total_spent
+DESC;
+
+-- LEFT JOIN; take everything from customers and what both customers and orders have in common;
+SELECT * FROM customers
+LEFT JOIN orders
+ON customers.id = orders.customer_id;
+
+SELECT 
+  fname, 
+  lname,
+  IFNULL(SUM(amount),0) AS 'total_spent'
+FROM customers
+LEFT JOIN orders
+ON customers.id = orders.customer_id
+GROUP BY customers.id
+ORDER BY total_spent
+DESC;
+
+--right join; take everything from ORDERS and what both customers and orders have in common;
+SELECT * FROM customers
+RIGHT JOIN orders
+ON customers.id = orders.customer_id;
