@@ -78,4 +78,24 @@
   - less than or greater than
   - IF ELSE
   - if else if
-  
+# section 12 (one to many)-relationships and joins - real world data is messy
+- 1 to 1 relationship
+- 1 to many relationship
+- using foreign keys
+```sql
+CREATE TABLE customers(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  fname VARCHAR(128),
+  lname VARCHAR(128),
+  email VARCHAR(128)
+);
+-- basically customer id is a foreign key which references id in the customer table.;
+CREATE TABLE orders(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  orderDate TIMESTAMP DEFAULT NOW(),
+  amount DECIMAL(8,2),
+  customer_id INT,
+  FOREIGN KEY(customer_id) REFERENCES customers(id)
+);
+```
+
