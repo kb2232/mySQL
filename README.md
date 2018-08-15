@@ -124,7 +124,7 @@ CREATE TABLE orders(
 
  >> SELECT * FROM customers, orders;
 
-* that is the result below;
+* that is the result below;This is basically useless...It's multiplying....This is the most basic join.
 ```
 +----+--------+---------+------------------+----+---------------------+--------+-------------+
 | id | fname  | lname   | email            | id | orderDate           | amount | customer_id |
