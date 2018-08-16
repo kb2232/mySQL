@@ -255,4 +255,12 @@ CREATE TABLE orders(
     ON series.id = reviews.series_id
     WHERE title 
     IN ("Archer","Arrested Development","Bob's Burgers");
+    -- challenge 2. show all title along with their respective average ratings.;
+    -- SOLUTION below;
+    SELECT title, AVG(rating)
+    FROM series
+    INNER JOIN reviews
+    ON series.id = reviews.series_id
+    GROUP BY series.id
+    ORDER BY AVG(rating);
   ```
