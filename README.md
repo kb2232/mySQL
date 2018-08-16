@@ -225,3 +225,34 @@ CREATE TABLE orders(
       RIGHT JOIN orders
       ON customers.id = orders.customer_id;
   ```
+# SECTION 13 - MANY TO MANY
+  - TABLE setup
+  ```sql
+      CREATE TABLE reviewers (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      fname VARCHAR(128),
+      lname VARCHAR(128)
+    );
+    CREATE TABLE series (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      title VARCHAR(128),
+      r_year YEAR(4),
+      genre VARCHAR(128)
+    );
+
+    CREATE TABLE reviews (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      rating DECIMAL(2,1),
+      series_id INT,
+      reviewer_id INT,
+      FOREIGN KEY(series_id) REFERENCES series(id),
+      FOREIGN KEY(reviewer_id) REFERENCES reviewers(id)
+    );
+    -- check file for actual data and problem to solve;
+    -- solution to first challenge is below;
+    SELECT title, rating, series_id FROM series
+    INNER JOIN reviews
+    ON series.id = reviews.series_id
+    WHERE title 
+    IN ("Archer","Arrested Development","Bob's Burgers");
+  ```
