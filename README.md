@@ -263,4 +263,22 @@ CREATE TABLE orders(
     ON series.id = reviews.series_id
     GROUP BY series.id
     ORDER BY AVG(rating);
+    -- challenge 3. show all first name and last name and rating;
+    SELECT fname, lname, rating
+    FROM reviewers
+    INNER JOIN reviews
+    ON reviewers.id = reviews.reviewer_id
+    WHERE fname
+    IN ("Thomas","Wyatt","Kimbra");
+  ```
+# section 14 - instagram clone
+  * users information
+  ```sql
+    CREATE TABLE users
+    (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      username VARCHAR(255) UNIQUE NOT NULL,
+      createdAt TIMESTAMP DEFAULT NOW()
+    );
+    -- username has to be unique and cannot be repeated;
   ```

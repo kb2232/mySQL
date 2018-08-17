@@ -101,3 +101,11 @@ INNER JOIN reviews
 ON series.id = reviews.series_id
 GROUP BY series.id
 ORDER BY AVG(rating);
+
+-- challenge 3. show all first name and last name and rating;
+SELECT fname, lname, rating
+FROM reviewers
+INNER JOIN reviews
+ON reviewers.id = reviews.reviewer_id
+WHERE fname
+IN ("Thomas","Wyatt","Kimbra");
